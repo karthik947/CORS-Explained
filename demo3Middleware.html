@@ -1,0 +1,31 @@
+<html>
+<body>
+    <select id="exchange"><option value="binance">Binance</option></select>
+    <button onclick="runAPI();">Run</button>
+</body>
+<script>
+
+function runAPI(){
+ var exchange = document.getElementById("exchange").value;
+ if(exchange == "binance"){
+    request('GET','https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v1/ticker/24hr').
+    then((d1) => {
+        console.log(d1.target.responseText);
+    }).
+    catch((err) => {
+        console.log(err);
+    });
+ }  
+}
+function request(method, url) {
+    return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = resolve;
+        xhr.onerror = reject;
+        xhr.send();
+    });
+}
+    
+</script>
+</html>
