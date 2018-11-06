@@ -8,7 +8,7 @@
 function runAPI(){
  var exchange = document.getElementById("exchange").value;
  if(exchange == "binance"){
-    request('GET','https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v1/ticker/24hr').
+    request('GET','https://api.binance.com/api/v1/ticker/24hr').
     then((d1) => {
         console.log(d1.target.responseText);
     }).
